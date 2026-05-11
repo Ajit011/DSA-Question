@@ -1,0 +1,36 @@
+Problem Statement-> Given an array of positive integers nums, return an array answer that consists of the digits of each integer in nums
+after separating them in the same order they appear in nums.
+To separate the digits of an integer is to get all the digits it has in the same order.
+For example, for the integer 10921, the separation of its digits is [1,0,9,2,1].
+
+// SOln-> loop o to n-1 and each step we take a digit and pass in a function to extract a digit and add it into List
+// then convert it into Array -> return Array ;
+in Function digit(we pass a string -> Array[i] , list ) -> we traverse on string to length and extract a String nd convert
+the String into digit like( s.charAt(i) - '0' ) 
+
+// code->class Solution {
+    public void digit(String s,ArrayList<Integer>list ){
+              
+             for(int i=0;i<s.length();i++){
+                list.add(s.charAt(i)-'0');
+             }
+    }
+    public int[] separateDigits(int[] arr) {
+        ArrayList<Integer>list = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            int y = arr[i];
+            String s = String.valueOf(y);
+            digit(s,list);
+        }
+        int ans[] = new int[list.size()];
+        for(int i=0;i<ans.length;i++){
+            ans[i] = list.get(i);
+        }
+        return ans;
+        
+    }
+}
+
+Time -> O(n) * O(m) -> n= arr.length, m = String.length() . 
+
+
